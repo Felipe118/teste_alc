@@ -1,0 +1,30 @@
+section{
+    padding: 3rem;
+    margin: 0 auto;
+   
+}
+.title{
+    text-align: center;
+    padding: 1rem;
+}
+table{
+    padding: .7rem;
+    width: 70%;
+    border-collapse: collapse;
+    margin: 0 auto;
+
+}
+
+th{
+    border-bottom: 1px solid black;
+    padding: .5rem 0;
+}
+
+td{
+    
+    text-align: center;
+    padding: .5rem 0;
+  border-bottom: 1px solid rgb(153, 151, 151);
+ 
+    
+}

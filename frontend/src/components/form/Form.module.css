@@ -1,0 +1,21 @@
+.title{
+    padding: 1rem 0;
+    text-align: center;
+}
+.form_container {
+    max-width: 300px;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+.form_container input[type='submit']{
+    border-radius: 8px;
+    background-color: blue;
+    color: white;
+    border: none;
+    min-width:100px;
+    min-height:2.5rem ;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+}
