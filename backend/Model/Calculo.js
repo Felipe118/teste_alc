@@ -3,6 +3,7 @@ const {DataTypes} = require("sequelize")
 
 const db = require("../db/Conn")
 
+//criando a tabela imc no banco
 const Calculo = db.define('IMC', {
     name:{
         type:DataTypes.STRING,

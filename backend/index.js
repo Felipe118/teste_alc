@@ -9,6 +9,7 @@ const conn = require('./db/Conn')
 //models
 const calculo = require("./Model/Calculo")
 
+//cors 
 app.use(cors({credentials:true,origin:'http://localhost:3000' }))
 
 app.use(

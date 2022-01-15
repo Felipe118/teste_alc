@@ -1,7 +1,8 @@
 const Calculo = require("../Model/Calculo")
 
 module.exports = class CalculoController {
-
+    
+    // metodo responsavel por fazer o calculo e salvar as informações no banco de dados
    static  salveImc(req,res){
 
     const weight = Number(req.body.weight)
@@ -11,6 +12,7 @@ module.exports = class CalculoController {
     console.log( height)
     let classification;
 
+    //validações os dois valores não podem ser 0
     if(height == 0){
         res.status(422).json({message: "A altura não pode ser 0"})
         return
@@ -20,13 +22,14 @@ module.exports = class CalculoController {
         return
     }
     
-    
+    //construindo o calculo do imc a formula é peso dividado por altura ao quadrado
     const result =  weight / Math.pow(height,2)
 
    const resultado = result.toFixed(2)
    console.log(resultado)
     
 
+   // Pegando a variavel resultado e comparando a cada classificação do imc 
     if(resultado <= 17){
         classification = 'Muito abaixo do peso'
     }else if(resultado > 17 && resultado <= 18.5){
@@ -43,6 +46,7 @@ module.exports = class CalculoController {
         classification = 'Obesidade III'
     }
 
+    //criando objeto com as informaçoes do front end 
     const imc = {
         name: req.body.name,
         weight: weight,
@@ -52,7 +56,7 @@ module.exports = class CalculoController {
     }
     
    
-    //salvando os dados do imc no banco
+    //salvando os dados do imc no banco de dados
     Calculo.create(imc)
       .then(() => {
 
@@ -64,6 +68,8 @@ module.exports = class CalculoController {
    
 }
 
+    //metodo responsavel por trazer todos registros imc do banco de dados
+    // enviando a resposta para o front
     static async listCalculos(req,res){
 
         console.log(req.query)
@@ -75,8 +81,7 @@ module.exports = class CalculoController {
             res.status(200).json({
                 imc: imcs
             })
-    
-           // res.render('imcs/home', { imcs })
+
           })
           .catch((err) => console.log(err))
     }
