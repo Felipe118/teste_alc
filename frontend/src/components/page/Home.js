@@ -1,6 +1,7 @@
 import Input from "../form/input"
 import styles from '../form/Form.module.css'
 import { useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 import api from "../../utils/api"
@@ -9,6 +10,7 @@ import api from "../../utils/api"
 
 function Home(){
     const [imc,setImc] = useState({})
+    const navigate = useNavigate()
    // const {calculo} = useContext(Context)
 
     function handleChange(e){
@@ -19,7 +21,7 @@ function Home(){
          api
         .post(`/imc/salve`, imc)
         .then((response) => {
-          console.log(response.data)
+         
           return response.data
         })
         .catch((err) => {
@@ -27,13 +29,15 @@ function Home(){
          
           return err.response.data
         })
+
+       
     }
 
     
     function handleSubmit(e){
         e.preventDefault()
         calculo(imc)
-        console.log(imc)
+        navigate('/list',{replace:true})
     }
    
     return (
