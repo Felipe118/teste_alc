@@ -1,6 +1,10 @@
 backend/node_modules
 frontend/node_modules
 
+backend/package.json
+frontend/package.json
+
+
 frontend/.pnp
 frontend/.pnp.js
 
