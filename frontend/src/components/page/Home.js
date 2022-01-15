@@ -11,7 +11,7 @@ import api from "../../utils/api"
 function Home(){
     const [imc,setImc] = useState({})
     const navigate = useNavigate()
-   // const {calculo} = useContext(Context)
+
 
     function handleChange(e){
      setImc({...imc, [e.target.name]: e.target.value})
@@ -37,8 +37,9 @@ function Home(){
     function handleSubmit(e){
         e.preventDefault()
         calculo(imc)
-        navigate('/list',{replace:true})
+        window.location.href='http://localhost:3000/list'
     }
+   
    
     return (
         <section className={styles.form_container}>

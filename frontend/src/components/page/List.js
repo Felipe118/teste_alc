@@ -2,6 +2,7 @@ import { useEffect, useState} from 'react'
 import api from '../../utils/api'
 import styles from './List.module.css'
 
+
 function  List() {
     const [imc,setImcs] = useState([])
     
@@ -11,7 +12,6 @@ function  List() {
             api.get('/imc/list')
              .then((res) => {
                   setImcs(res.data.imc)
-                //   console.log(res.data.imc)
               })
               .catch((err) => {
                   console.log(err)
@@ -25,12 +25,6 @@ function  List() {
    
     return (
             
-        // <section>
-        //     {imc.map((imcs) => (
-        //        <p key={imcs.id}>{imcs.name}</p>
-        //      ))}
-        //  </section>
-
         <section>
            <h1 className={styles.title}>Lista IMC</h1>
             <table>
